@@ -2,20 +2,20 @@
 
 ### Expansion and globbing  
 
-`$(asdf)` 
+##### `$(asdf)` 
 
 
 
 ### Types of quotes:  
-`` ` ` ``  
-`" "`   
-`' '`    
+##### `` ` ` ``  
+##### `" "`   
+##### `' '`    
 
 
 ### Types of braces:  
-`( )`  
+##### `( )`  
 
-`[ ]`  
+##### `[ ]`  
 Conditional expansion:   
 ```bash
 if [ -d /tmp ]; then
@@ -24,7 +24,7 @@ fi
 ```
   
   
-`[[ ]]`  
+##### `[[ ]]`  
 Also conditional expansion.  
 No pathname expansion or word splitting takes place between `[[` and `]]`  
 `[[ ... ]]` allows for regular expression matching where `[ ... ]` does not.  
@@ -36,35 +36,35 @@ x='name with space.sh'
                         #  all matching files in the current dir
 [[ $x == *.sh ]]        # Compares 'name with space.sh' to *.sh, matches
 ```
-
+Note that `[ ... ]` is a builtin and executes at runtime, whereas `[[ ... ]]` is a syntax feature of the shell lanugage and is parsed up front.  See (this oilshell blog post)[http://www.oilshell.org/blog/2016/10/12.html] for an in-depth discussion of these differences.  
   
-`(( ))`  
+##### `(( ))`  
   Prevents globbing  
   
-`{ }`  
+##### `{ }`  
 
 
   
 ### $ things:  
-`!!`  
+##### `!!`  
   Last command  
   
-`!$`  
+##### `!$`  
   Last arg of last command  
   
-`$`  
+##### `$`  
   Expand variable  
   
-`$#`   
+##### `$#`   
   Number of args to this script  
   
-`$?`    
+##### `$?`    
   The exit code of the last command  
   
-`$0`  
+##### `$0`  
   This command  
   
-`$1`   
+##### `$1`   
   First arg to this script  
   
 
@@ -74,10 +74,10 @@ x='name with space.sh'
 (Other numerical comparison
 operators)[http://www.tldp.org/LDP/abs/html/comparison-ops.html]   
   
-`-e FILE`  
+##### `-e FILE`  
   True if FILE exists  
   
-`-z STRING`  
+##### `-z STRING`  
   True if length of STRING is zero  
 
 
