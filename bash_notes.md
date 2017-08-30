@@ -3,7 +3,7 @@
 3. [Types of braces](#types-of-braces) 
 4. [Previous command references](#previous-command-references)
 5. [if statement](#if-statement)
-
+6. [Scripting and Debug](#scripting-and-debug)
 
 ### Expansion and globbing  
 
@@ -111,6 +111,12 @@ operators)[http://www.tldp.org/LDP/abs/html/comparison-ops.html]
 TODO add examples
 
 
+### Scripting and Debug
+##### `set -x`
+  Put in the beginning of a bash script to output everything the script does
+
+##### `#!`
+  Indicate script should use bash to run with `#!/bin/bash` or `#!/usr/bin/bash`  
 
 
 
