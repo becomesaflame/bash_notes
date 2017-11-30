@@ -13,6 +13,8 @@ Performs command substitution
 
 ### Types of quotes:  
 ##### Back Ticks  `` ` ` ``  
+Used for command substitution.  `$()` notation is preferred.
+
 ##### Double Quotes `" "`   
 ##### Single Quotes `' '`    
 
