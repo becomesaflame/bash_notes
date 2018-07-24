@@ -115,7 +115,7 @@ TODO add examples
 
 ### Scripting and Debug
 ##### `set -x`
-  Put in the beginning of a bash script to output everything the script does
+  Put in the beginning of a bash script to output everything the script does, or run script with `bash -x script.sh`
 
 ##### `#!`
   Indicate script should use bash to run with `#!/bin/bash` or `#!/usr/bin/bash`  
