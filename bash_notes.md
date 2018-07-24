@@ -4,6 +4,7 @@
 4. [Previous command references](#previous-command-references)
 5. [if statement](#if-statement)
 6. [Scripting and Debug](#scripting-and-debug)
+7. [Useful Command Examples](#useful-command-examples)
 
 ### Expansion and globbing  
 
@@ -126,3 +127,7 @@ TODO add examples
 ```bash  
 value=$(<config.txt)  
 ```  
+
+### Useful Command Examples
+Rename all files in a folder:  
+`for file in *.png; do mv "$file" "${file/_h.png/_half.png}"; done`
