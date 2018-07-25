@@ -131,3 +131,4 @@ value=$(<config.txt)
 ### Useful Command Examples
 Rename all files in a folder:  
 `for file in *.png; do mv "$file" "${file/_h.png/_half.png}"; done`
+  For more substition explanation, go [here](https://www.tldp.org/LDP/abs/html/parameter-substitution.html)
