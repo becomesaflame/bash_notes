@@ -130,10 +130,10 @@ value=$(<config.txt)
 ```  
 
 ### Filename Manipulation
-To strip the path from a string and leave just the filename:
+To strip the path from a string and leave just the filename:  
 `$(basename "$pathspec")`
 
-To strip the filename from a string and leave just the path:
+To strip the filename from a string and leave just the path:  
 `$(dirname "$pathspec")`
 
 ### Useful Command Examples
