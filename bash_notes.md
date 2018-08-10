@@ -4,7 +4,8 @@
 4. [Previous command references](#previous-command-references)
 5. [if statement](#if-statement)
 6. [Scripting and Debug](#scripting-and-debug)
-7. [Useful Command Examples](#useful-command-examples)
+7. [Filename manipulation](#filename-manipulation)
+8. [Useful Command Examples](#useful-command-examples)
 
 ### Expansion and globbing  
 
@@ -127,6 +128,13 @@ TODO add examples
 ```bash  
 value=$(<config.txt)  
 ```  
+
+### Filename Manipulation
+To strip the path from a string and leave just the filename:
+`$(basename "$pathspec")`
+
+To strip the filename from a string and leave just the path:
+`$(dirname "$pathspec")`
 
 ### Useful Command Examples
 Rename all files in a folder:  
