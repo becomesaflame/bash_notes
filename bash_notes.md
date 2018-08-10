@@ -5,7 +5,8 @@
 5. [if statement](#if-statement)
 6. [Scripting and Debug](#scripting-and-debug)
 7. [Filename manipulation](#filename-manipulation)
-8. [Useful Command Examples](#useful-command-examples)
+8. [Output redirection](#output-redirection)
+9. [Useful Command Examples](#useful-command-examples)
 
 ### Expansion and globbing  
 
@@ -135,6 +136,21 @@ To strip the path from a string and leave just the filename:
 
 To strip the filename from a string and leave just the path:  
 `$(dirname "$pathspec")`
+
+
+### Output Redirection
+Redirect stdout to a log file:  
+`myprogram > out.log`  
+
+Suppress stderr:  
+`myprogram 2> /dev/null`  
+
+Suppress both stdout and stderr:
+```
+myprogram &> out.log      # New bash syntax
+myprogram > out.log 2>&1  # Older sh syntax
+```
+
 
 ### Useful Command Examples
 Rename all files in a folder:  
