@@ -6,7 +6,7 @@
 6. [Scripting and Debug](#scripting-and-debug)
 7. [Filename manipulation](#filename-manipulation)
 8. [Output redirection](#output-redirection)
-9. [Useful Command Examples](#useful-command-examples)
+9. [Useful Command Examples and Design Patterns](#useful-command-examples-and-design-patterns)
 
 ### Expansion and globbing  
 
@@ -152,7 +152,20 @@ myprogram > out.log 2>&1  # Older sh syntax
 ```
 
 
-### Useful Command Examples
+### Useful Command Examples and Design Patterns
 Rename all files in a folder:  
 `for file in *.png; do mv "$file" "${file/_h.png/_half.png}"; done`
   For more substition explanation, go [here](https://www.tldp.org/LDP/abs/html/parameter-substitution.html)
+
+
+Add a main function that's only called if the script is being called directly from the command line:
+```
+main() {
+    xyz
+    echo "Entering script1's main()"
+}
+
+if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
+    main "$@"
+fi
+```
