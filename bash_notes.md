@@ -6,7 +6,8 @@
 6. [Scripting and Debug](#scripting-and-debug)
 7. [Filename manipulation](#filename-manipulation)
 8. [Output redirection](#output-redirection)
-9. [Useful Command Examples and Design Patterns](#useful-command-examples-and-design-patterns)
+9. [Parameter Expansion](#parameter-expansion)
+10. [Useful Command Examples and Design Patterns](#useful-command-examples-and-design-patterns)
 
 ### Expansion and globbing  
 
@@ -151,6 +152,9 @@ myprogram &> out.log      # New bash syntax
 myprogram > out.log 2>&1  # Older sh syntax
 ```
 
+### Parameter Expansion
+Write this up:
+http://wiki.bash-hackers.org/syntax/pe 
 
 ### Useful Command Examples and Design Patterns
 Rename all files in a folder:  
