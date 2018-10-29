@@ -138,6 +138,8 @@ To strip the path from a string and leave just the filename:
 To strip the filename from a string and leave just the path:  
 `$(dirname "$pathspec")`
 
+To expand `~` in a variable `var` to full home directory path:
+`var="${var/#\~/$HOME}"`
 
 ### Output Redirection
 Redirect stdout to a log file:  
