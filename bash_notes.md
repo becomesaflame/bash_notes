@@ -163,7 +163,7 @@ Rename all files in a folder:
 `for file in *.png; do mv "$file" "${file/_h.png/_half.png}"; done`
   For more substition explanation, go [here](https://www.tldp.org/LDP/abs/html/parameter-substitution.html)
 
-
+#### Check if called from script
 Add a main function that's only called if the script is being called directly from the command line:
 ```
 main() {
@@ -175,3 +175,18 @@ if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
     main "$@"
 fi
 ```
+
+#### Recursive glob
+Recurses through the given directory and its subdirectories, returning a list of files that match the glob string
+```
+ proc ::globr { baseDir pattern } {
+   set dirs [ glob -nocomplain -type d [ file join $baseDir * ] ]
+   set files {}
+   foreach dir $dirs {
+     lappend files {*}[ globr $dir $pattern ]
+   }
+   lappend files {*}[ glob -nocomplain -type f [ file join $baseDir $pattern ] ]
+   return $files
+ }
+ ```
+ 
