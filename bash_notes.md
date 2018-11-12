@@ -190,3 +190,7 @@ Recurses through the given directory and its subdirectories, returning a list of
  }
  ```
  
+#### Create a directory if it doesn't exist
+```
+[ -d "foobar" ] || mkdir foobar
+```
