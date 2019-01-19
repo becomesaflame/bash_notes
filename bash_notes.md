@@ -8,7 +8,8 @@
 8. [Output redirection](#output-redirection)
 9. [Parameter Expansion](#parameter-expansion)
 10. [String Manipulation](#string-manipulation)
-11. [Useful Command Examples and Design Patterns](#useful-command-examples-and-design-patterns)
+11. [Loops](#loops)
+12. [Useful Command Examples and Design Patterns](#useful-command-examples-and-design-patterns)
 
 ### Expansion and globbing  
 
@@ -167,9 +168,20 @@ myprogram > out.log 2>&1  # Older sh syntax
 Write this up:
 http://wiki.bash-hackers.org/syntax/pe 
 
+
 ### String Manipulation
 Concatenate variables with strings:
 `foo="${bar}world"`
+
+
+### Loops
+#### For Loop
+```
+for i in $( ls ); do
+    echo item: $i
+  done
+```
+
 
 ### Useful Command Examples and Design Patterns
 Rename all files in a folder:  
