@@ -7,7 +7,8 @@
 7. [Filename manipulation](#filename-manipulation)
 8. [Output redirection](#output-redirection)
 9. [Parameter Expansion](#parameter-expansion)
-10. [Useful Command Examples and Design Patterns](#useful-command-examples-and-design-patterns)
+10. [String Manipulation](#string-manipulation)
+11. [Useful Command Examples and Design Patterns](#useful-command-examples-and-design-patterns)
 
 ### Expansion and globbing  
 
@@ -165,6 +166,10 @@ myprogram > out.log 2>&1  # Older sh syntax
 ### Parameter Expansion
 Write this up:
 http://wiki.bash-hackers.org/syntax/pe 
+
+### String Manipulation
+Concatenate variables with strings:
+`foo="${bar}world"`
 
 ### Useful Command Examples and Design Patterns
 Rename all files in a folder:  
