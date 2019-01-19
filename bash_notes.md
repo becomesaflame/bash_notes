@@ -182,6 +182,15 @@ for i in $( ls ); do
   done
 ```
 
+Loop through array:
+```
+arr=("a", "b", "c")
+for i in "${arr[@]}"
+do
+   echo "$i"
+done
+```
+
 
 ### Useful Command Examples and Design Patterns
 Rename all files in a folder:  
