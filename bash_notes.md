@@ -114,8 +114,16 @@ operators)[http://www.tldp.org/LDP/abs/html/comparison-ops.html]
 ##### `-z STRING`  
   True if length of STRING is zero  
 
-TODO add examples
-
+##### Examples:
+```
+if [ ! -d "aFolder" ]; then
+  mkdir "aFolder"
+elif [ -d "bFolder" ]; then
+  rmdir "bFolder"
+else
+  rmdir "aFolder"
+fi
+```
 
 ### Scripting and Debug
 ##### `set -x`
