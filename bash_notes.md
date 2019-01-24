@@ -168,6 +168,51 @@ myprogram > out.log 2>&1  # Older sh syntax
 Write this up:
 http://wiki.bash-hackers.org/syntax/pe 
 
+#### Indirect Parameter Expansion 
+Say you have a variable that contains the name of another variable:
+```
+foo="1234"
+bar="foo"
+```
+If you try `echo $bar` you will get `foo`. 
+If you want to evaluate the varable whose name it contains, you can use indirect expansion:
+```
+echo ${!bar}
+```
+This will return `1234`.
+
+#### Nameref
+A variable can be created to point to another variable.
+Interactive: 
+```
+x="1234"
+declare -n foo=x
+echo $foo
+```
+
+In a function:
+```
+x="1234"
+local -n foo=x
+echo $foo
+```
+
+This is useful for manipulating variables names, e.g.
+```
+version="2_3"
+local -n build="rev_$version"
+```
+`build` will now point to the value of the variable `rev_2_3`. You can assign a value to that variable using the nameref:
+```
+build="foo"
+echo $rev_2_3
+```
+
+If you use indirect expansion for a nameref, you will get the name of the variable it points to.
+```
+echo "${!build}"
+```
+will return `rev_2_3`.
 
 ### String Manipulation
 Concatenate variables with strings:
