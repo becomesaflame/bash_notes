@@ -273,3 +273,11 @@ Recurses through the given directory and its subdirectories, returning a list of
 ```
 [ -d "foobar" ] || mkdir foobar
 ```
+
+#### Main function 
+```
+# Run main function only if script is executed with ./<script>.sh, not when it is sourced
+if [[ "${BASH_SOURCE[0]}" != "${0}" ]]; then
+  main 
+fi
+```
