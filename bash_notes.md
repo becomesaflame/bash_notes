@@ -9,7 +9,8 @@
 9. [Parameter Expansion](#parameter-expansion)
 10. [String Manipulation](#string-manipulation)
 11. [Loops](#loops)
-12. [Useful Command Examples and Design Patterns](#useful-command-examples-and-design-patterns)
+12. [Associative Arrays](#associative-arrays)
+13. [Useful Command Examples and Design Patterns](#useful-command-examples-and-design-patterns)
 
 ### Expansion and globbing  
 
@@ -236,6 +237,22 @@ do
 done
 ```
 
+
+### Associative Arrays
+Good overview at [https://www.artificialworlds.net/blog/2012/10/17/bash-associative-array-examples/](https://www.artificialworlds.net/blog/2012/10/17/bash-associative-array-examples/)
+
+#### Pass an Associative Array into a Function
+```
+printKeys () {
+  var=$(declare -p "$1")
+  eval "declare -A arr="${var#*=}
+  
+  echo "${!arr[@]}"
+ }
+ 
+declare -A aa='([bar]="bard" [foo]="food" )'
+printKeys "aa"
+```
 
 ### Useful Command Examples and Design Patterns
 Rename all files in a folder:  
