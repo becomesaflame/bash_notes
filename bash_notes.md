@@ -306,3 +306,7 @@ if [[ "${BASH_SOURCE[0]}" != "${0}" ]]; then
   main $*
 fi
 ```
+
+#### Read csv
+Echo line 2, column 5 from file.csv:
+`echo $(awk -F, '{ if(NR==2){ print $5; } }' file.csv)`
