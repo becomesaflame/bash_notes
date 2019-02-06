@@ -9,8 +9,9 @@
 9. [Parameter Expansion](#parameter-expansion)
 10. [String Manipulation](#string-manipulation)
 11. [Loops](#loops)
-12. [Associative Arrays](#associative-arrays)
-13. [Useful Command Examples and Design Patterns](#useful-command-examples-and-design-patterns)
+12. [Arrays](#arrays)
+13. [Associative Arrays](#associative-arrays)
+14. [Useful Command Examples and Design Patterns](#useful-command-examples-and-design-patterns)
 
 ### Expansion and globbing  
 
@@ -237,6 +238,13 @@ do
 done
 ```
 
+
+### Arrays
+Append to an array:
+`arr+=(4)`
+
+Print all values of an array:
+`echo "{arr[@]}"`
 
 ### Associative Arrays
 Good overview at [https://www.artificialworlds.net/blog/2012/10/17/bash-associative-array-examples/](https://www.artificialworlds.net/blog/2012/10/17/bash-associative-array-examples/)
