@@ -295,6 +295,6 @@ Recurses through the given directory and its subdirectories, returning a list of
 ```
 # Run main function only if script is executed with ./<script>.sh, not when it is sourced
 if [[ "${BASH_SOURCE[0]}" != "${0}" ]]; then
-  main 
+  main $*
 fi
 ```
