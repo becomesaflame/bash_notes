@@ -11,7 +11,8 @@
 11. [Loops](#loops)
 12. [Arrays](#arrays)
 13. [Associative Arrays](#associative-arrays)
-14. [Useful Command Examples and Design Patterns](#useful-command-examples-and-design-patterns)
+14. [Process Substitution](#process-substitution)
+15. [Useful Command Examples and Design Patterns](#useful-command-examples-and-design-patterns)
 
 ### Expansion and globbing  
 
@@ -261,6 +262,11 @@ printKeys () {
 declare -A aa='([bar]="bard" [foo]="food" )'
 printKeys "aa"
 ```
+
+### Process Substitution
+Used to pipe the `stdout` of one command into the `stdin` of another, or vise versa
+`<(command)`
+`>(command)`
 
 ### Useful Command Examples and Design Patterns
 Rename all files in a folder:  
