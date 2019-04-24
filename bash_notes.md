@@ -221,6 +221,19 @@ will return `rev_2_3`.
 Concatenate variables with strings:
 `foo="${bar}world"`
 
+Delete shortest match of `$substring` from front of `$string`:
+`${string#substring}`
+
+Delete longest match of `$substring` from front of `$string`:
+`${string##substring}`
+
+Delete shortest match of `$substring` from back of `$string`:
+`${string%substring}`
+
+Delete longest match of `$substring` from back of `$string`:
+`${string%%substring}`
+
+[More string manipulation](https://www.tldp.org/LDP/abs/html/string-manipulation.html)
 
 ### Loops
 #### For Loop
