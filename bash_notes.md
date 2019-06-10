@@ -329,3 +329,6 @@ fi
 #### Read csv
 Echo line 2, column 5 from file.csv:  
 `echo $(awk -F, '{ if(NR==2){ print $5; } }' file.csv)`
+
+#### Run a command using the contents of a file as its argument
+mycommand $(< file.txt)
