@@ -332,3 +332,13 @@ Echo line 2, column 5 from file.csv:
 
 #### Run a command using the contents of a file as its argument
 mycommand $(< file.txt)
+
+#### Parallel Rsync with no dependencies
+`find . -maxdepth 1 -type d -print0 | xargs -0 -P 5 -I % rsync -ahvPz % dest/dir`
+`find` produces a file list. 
+The `-print0` option uses a null character as a separator, and is used with the `-0` option to `xargs`. 
+The `-P 5` option to `xargs` kicks off 5 processes in parallel. 
+The `-I %` is used to insert the inputs into a specific location (denoted by the `%` symbol) into the `rsync` command.
+
+
+
