@@ -20,6 +20,11 @@
 ##### `$(asdf)` 
 Performs command substitution 
 
+##### Globbing within a string
+```
+a="foo"
+b="${a}bar"
+```
 
 ### Types of quotes:  
 ##### Back Ticks  `` ` ` ``  
@@ -283,7 +288,7 @@ Used to pipe the `stdout` of one command into the `stdin` of another, or vise ve
 `>(command)`
 
 ### Functions
-#### Create and call a function:
+##### Create and call a function:
 ```
 sayHi(){
   echo 'Hello World'
@@ -291,7 +296,7 @@ sayHi(){
 sayHi
 ```
 
-#### Function with arguments:
+##### Function with arguments:
 Functions use positional variables just like scripts do.
 ``` 
 sayHi(){
@@ -300,7 +305,7 @@ sayHi(){
 sayHi "World"
 ```
 
-#### Function with return value:
+##### Function with return value:
 Can return a string with `echo`. Can set the exit code with `return`
 ```
 sayHi(){
