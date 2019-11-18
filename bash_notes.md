@@ -12,7 +12,8 @@
 12. [Arrays](#arrays)
 13. [Associative Arrays](#associative-arrays)
 14. [Process Substitution](#process-substitution)
-15. [Useful Command Examples and Design Patterns](#useful-command-examples-and-design-patterns)
+15. [Functions](#functions)
+16. [Useful Command Examples and Design Patterns](#useful-command-examples-and-design-patterns)
 
 ### Expansion and globbing  
 
@@ -280,6 +281,35 @@ printKeys "aa"
 Used to pipe the `stdout` of one command into the `stdin` of another, or vise versa
 `<(command)`
 `>(command)`
+
+### Functions
+#### Create and call a function:
+```
+sayHi(){
+  echo 'Hello World'
+}
+sayHi
+```
+
+#### Function with arguments:
+Functions use positional variables just like scripts do.
+``` 
+sayHi(){
+  echo "Hello $1"
+}
+sayHi "World"
+```
+
+#### Function with return value:
+Can return a string with `echo`. Can set the exit code with `return`
+```
+sayHi(){
+  echo "Hello World"
+  return 0 # Success
+}
+greeting="$(sayHi)"
+echo $greeting
+```
 
 ### Useful Command Examples and Design Patterns
 Rename all files in a folder:  
