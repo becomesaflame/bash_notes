@@ -346,10 +346,10 @@ exit 0
 
 #### Parsing Arguments
 
-# Parse args
 
 Example of walking through arguments and processing them one at a time. This can support arguments in different orders, but cannot support multiple flags combined e.g. `ls -al`. 
 ```
+# Parse args
 while [[ $# -gt 0 ]]
 do 
   key="$1"
