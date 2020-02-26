@@ -433,5 +433,17 @@ The `-print0` option uses a null character as a separator, and is used with the 
 The `-P 5` option to `xargs` kicks off 5 processes in parallel.  
 The `-I %` is used to insert the inputs into a specific location (denoted by the `%` symbol) into the `rsync` command.  
 
+####
+Check if a file contains some string and not another string
+```
+if   prog | grep -q 'some string' &&
+   ! prog | grep -q 'another string'; then
+    echo 'OK'
+else
+    echo 'Not OK'
+fi
+```
+This is surprisingly hard to do. Can't be done by stringing together square braces, can't be done with grep without using prog, can't be done with `find filename -exec grep -q 'some string' {} \; -not -exec grep -q 'another string' {} \;`
+
 
 
