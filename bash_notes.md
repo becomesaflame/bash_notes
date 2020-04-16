@@ -398,9 +398,9 @@ Recurses through the given directory and its subdirectories, returning a list of
  proc ::globr { baseDir pattern } {
    set dirs [ glob -nocomplain -type d [ file join $baseDir * ] ]
    set files {}
-   foreach dir $dirs {
+   for dir in $dirs; do
      lappend files {*}[ globr $dir $pattern ]
-   }
+   done
    lappend files {*}[ glob -nocomplain -type f [ file join $baseDir $pattern ] ]
    return $files
  }
