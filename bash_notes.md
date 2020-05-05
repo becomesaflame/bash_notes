@@ -374,6 +374,14 @@ do
 done
 ```
 
+Example of parsing an optional argument:
+```
+# Process optional arguments
+if [[ $# -gt 0 ]]; then
+  argumentVariable="$1"
+fi
+```
+
 ### Useful Command Examples and Design Patterns
 Rename all files in a folder:  
 `for file in *.png; do mv "$file" "${file/_h.png/_half.png}"; done`
