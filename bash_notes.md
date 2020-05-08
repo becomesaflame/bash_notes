@@ -34,6 +34,17 @@ Used for command substitution.  `$()` notation is preferred.
 ##### Double Quotes `" "`   
 ##### Single Quotes `' '`    
 
+##### Large text block
+Not a quote, but here's how to put a large block of formatted text into a variable. It can have quotes, single quotes, special characters, etc.
+```
+EXAMPLE_JSON=$(cat <<EOF
+    "state":"pending",
+    "target_url":"https://eace02.app.ray.com/cje01/job/clue/job/ids/job/ids-csp/",
+    "description":"Release Candidate Regression Pending",
+    "context":"continuous-integration/jenkins/release-candidate-regress"
+EOF
+)
+```
 
 ### Types of braces:  
 ##### Parentheses `( )`  
