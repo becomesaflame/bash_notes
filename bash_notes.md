@@ -254,6 +254,11 @@ Delete longest match of `$substring` from back of `$string`:
 [More string manipulation](https://www.tldp.org/LDP/abs/html/string-manipulation.html)
 
 ### Loops
+
+#### Loop Control
+`break` jumps you out of the loop.
+`continue` jumps you to the next loop iteration.
+
 #### For Loop
 ```
 for i in $( ls ); do
@@ -270,6 +275,17 @@ do
 done
 ```
 
+#### While Loop
+Example of looping through an array of unknown length of JSON objects
+```
+i=0
+while [ "$(./jq -r .[$i] <<< $statuses)" != null ]; do
+  if [ "$(echo $statuses | ./jq -r .[$i].context)" = "continuous-integration/jenkins/condor-regress" ]; then
+    break
+  fi
+  i=$(($i + 1))
+done
+```
 
 ### Arrays
 Append to an array:
