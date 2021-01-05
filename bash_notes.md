@@ -185,6 +185,12 @@ myprogram &> out.log      # New bash syntax
 myprogram > out.log 2>&1  # Older sh syntax
 ```
 
+Redirect both stdout and stderr to file, while still printing them:
+`myprogram |& tee`
+
+Same as above, but append instead of overwriting file:
+`myprogram |& tee -a`
+
 ### Parameter Expansion
 Write this up:
 http://wiki.bash-hackers.org/syntax/pe 
