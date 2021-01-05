@@ -185,14 +185,14 @@ myprogram &> out.log      # New bash syntax
 myprogram > out.log 2>&1  # Older sh syntax
 ```
 
-Pipe both standard output and standard error of one command as input to another:
-`|&` : This is a shorthand for `2>&1 |`
+Pipe both standard output and standard error of one command as input to another:  
+`|&` : This is a shorthand for `2>&1 |`  
 `command1 |& command2`
 
-Redirect both stdout and stderr to file, while still printing them:
+Redirect both stdout and stderr to file, while still printing them:  
 `myprogram |& tee`
 
-Same as above, but append instead of overwriting file:
+Same as above, but append instead of overwriting file:  
 `myprogram |& tee -a`
 
 ### Parameter Expansion
