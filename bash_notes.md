@@ -489,5 +489,17 @@ fi
 ```
 This is surprisingly hard to do. Can't be done by stringing together square braces, can't be done with grep without using prog, can't be done with `find filename -exec grep -q 'some string' {} \; -not -exec grep -q 'another string' {} \;`
 
-
+#### Fail a function if a command that it depends on doesn't exist
+`command` is likely built in to your shell, and with the `-v` option will tell you how your shell will invoke the command specified as its option. If the command doesn't exist it will return an error.
+```
+ try_wget() {
+  command -v wget > /dev/null &&      # Following command (in this case, the if statement) won't run if wget isn't available
+  if [[ $1 =~ tar.gz$ ]]; then
+    wget -O - $1 | tar -xzf -
+  else
+    local temp=${TMPDIR:-/tmp}/fzf.zip
+    wget -O "$temp" $1 && unzip -o "$temp" && rm -f "$temp"
+  fi
+}
+```
 
