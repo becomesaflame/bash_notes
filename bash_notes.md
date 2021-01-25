@@ -424,7 +424,7 @@ Rename all files in a folder:
 `for file in *.png; do mv "$file" "${file/_h.png/_half.png}"; done`
   For more substition explanation, go [here](https://www.tldp.org/LDP/abs/html/parameter-substitution.html)
 
-#### Check if called from script
+#### Main function
 Add a main function that's only called if the script is being called directly from the command line:
 ```
 main() {
@@ -456,14 +456,6 @@ Recurses through the given directory and its subdirectories, returning a list of
 [ -d "foobar" ] || mkdir foobar
 ```
 
-#### Main function 
-```
-# Run main function only if script is executed with ./<script>.sh, not when it is sourced
-if [[ "${BASH_SOURCE[0]}" != "${0}" ]]; then
-  main $*
-fi
-```
-
 #### Read csv
 Echo line 2, column 5 from file.csv:  
 `echo $(awk -F, '{ if(NR==2){ print $5; } }' file.csv)`
@@ -472,6 +464,7 @@ Echo line 2, column 5 from file.csv:
 mycommand $(< file.txt)
 
 #### Parallel Rsync with no dependencies
+Copy all directories in the current directory to `dest/dir`, using up to 5 parallel processes
 `find . -maxdepth 1 -type d -print0 | xargs -0 -P 5 -I % rsync -ahvPz % dest/dir`  
 `find` produces a file list.   
 The `-print0` option uses a null character as a separator, and is used with the `-0` option to `xargs`.  
@@ -503,3 +496,8 @@ This is surprisingly hard to do. Can't be done by stringing together square brac
 }
 ```
 
+#### Make sure you're in the directory where the script is located
+```
+cd $(dirname ${BASH_SOURCE[0]})
+```
+Using `${BASH_SOURCE[0]}` instead of `$0` will work even if the script is called with `source`. 
