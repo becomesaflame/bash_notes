@@ -14,7 +14,8 @@
 14. [Process Substitution](#process-substitution)
 15. [Functions](#functions)
 16. [Arguments and Usage](#arguments-and-usage)
-17. [Useful Command Examples and Design Patterns](#useful-command-examples-and-design-patterns)
+17. [User Input](#user-input)
+18. [Useful Command Examples and Design Patterns](#useful-command-examples-and-design-patterns)
 
 ### Expansion and globbing  
 
@@ -417,6 +418,22 @@ Example of parsing an optional argument:
 if [[ $# -gt 0 ]]; then
   argumentVariable="$1"
 fi
+```
+
+### User Input
+Get input from a user:
+Use the `read` command. 
+
+Example of yes/no prompt:
+```
+while true; do
+    read -p "Do you wish to install this program?" yn
+    case $yn in
+        [Yy]* ) make install; break;;
+        [Nn]* ) exit;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
 ```
 
 ### Useful Command Examples and Design Patterns
