@@ -427,7 +427,7 @@ Use the `read` command.
 Example of yes/no prompt:
 ```
 while true; do
-    read -p "Do you wish to install this program?" yn
+    read -p $'Do you wish to install this program?\n' yn
     case $yn in
         [Yy]* ) make install; break;;
         [Nn]* ) exit;;
