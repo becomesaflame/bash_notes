@@ -213,6 +213,12 @@ echo ${!bar}
 ```
 This will return `1234`.
 
+Use a default value if the variable is unset or null:
+```
+echo ${foo-bar}             # Will return "bar" if foo is unset
+echo ${foo:-bar}            # Will return "bar" if foo is unset or null (empty)
+```
+
 #### Nameref
 A variable can be created to point to another variable.
 Interactive: 
