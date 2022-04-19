@@ -104,26 +104,24 @@ hello
 
   
 ### Previous command references:  
-##### Bang Bang `!!`  
-  Last command  
-  
-##### Bang Dollar `!$`  
-  Last arg of last command  
-  
-##### Dollar `$`  
-  Expand variable  
-  
-##### Dollar Hash `$#`   
-  Number of args to this script  
-  
-##### Dollar Question `$?`    
-  The exit code of the last command  
-  
-##### Dollar Number 0 `$0`  
-  This command  
-  
-##### Dollar Number `$1`   
-  First arg to this script  
+
+`!$` - last argument from previous command
+`!^` - first argument (after the program/built-in/script) from previous command
+`!*` - all arguments from previous command
+`!!` - previous command (often pronounced "bang bang")
+`!n` - command number n from history
+`!pattern` - most recent command matching pattern
+`!!:s/find/replace` - last command, substitute find with replace
+
+[More](https://web.archive.org/web/20200702202816/http://www.washington.edu:80/computing/unix/history.html)
+
+##### Other symbol shortcuts
+
+Dollar `$` - Expand variable  
+Dollar Hash `$#` - Number of args to this script  
+Dollar Question `$?` - The exit code of the last command  
+Dollar Number 0 `$0` - This command  
+Dollar Number `$1` - First (or other number) arg to this script  
   
 
 
