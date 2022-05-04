@@ -52,7 +52,8 @@ EOF
 
 ### Types of braces:  
 ##### Parentheses `( )` - Subshell
-Runs the commands inside the parenthises in a subshell
+Runs the commands inside the parenthises in a subshell.  
+Used primarily to group commands together to get a single output  
 
 ##### Double Parentheses `(( ))` - Arithmatic Evaluation 
   Used for arithmatic expansion.  `$(( ))` is probably a more common form.
@@ -91,8 +92,17 @@ x='name with space.sh'
 ```
 Note that `[ ... ]` is a builtin and executes at runtime, whereas `[[ ... ]]` is a syntax feature of the shell lanugage and is parsed up front.  See (this oilshell blog post)[http://www.oilshell.org/blog/2016/10/12.html] for an in-depth discussion of these differences.  
   
-##### Braces `{ }`  
-Allow variable manipulation:  
+##### Curly Braces as array builders `{ }`  
+Extrapolates a sequence to create an array  
+```bash
+$ echo {0..5}
+0 1 2 3 4 5
+```
+
+See https://www.linux.com/topic/desktop/all-about-curly-braces-bash/ for more examples
+
+##### Curly Braces as parameter expansion `${ }`
+Allow parameter expansion and variable manipulation:  
 * Truncate the contents of a variable
 ```bash
 $ var="abcde"; echo ${var%d*}
