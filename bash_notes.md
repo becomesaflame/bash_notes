@@ -153,9 +153,9 @@ Dollar Number `$1` - First (or other number) arg to this script
 
 
 ### if statement:  
-(Comprehensive syntax)[http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html]   
-(Other numerical comparison
-operators)[http://www.tldp.org/LDP/abs/html/comparison-ops.html]   
+[Comprehensive syntax](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html)   
+[Other numerical comparison
+operators](http://www.tldp.org/LDP/abs/html/comparison-ops.html)   
   
 ##### `-e FILE`  
   True if FILE exists  
