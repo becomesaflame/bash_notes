@@ -30,10 +30,13 @@ b="${a}bar"
 
 ### Types of quotes:  
 ##### Back Ticks  `` ` ` ``  
-Used for command substitution.  `$()` notation is preferred.
+Used for command substitution.  `$()` notation is preferred. 
 
 ##### Double Quotes `" "`   
+Groups the text inside together, and evaluates escape characters, globs, command substitution, variables, etc    
+
 ##### Single Quotes `' '`    
+Takes the text inside exactly, without evaluating anything
 
 ##### Large text block
 Not a quote, but here's how to put a large block of formatted text into a variable. It can have quotes, single quotes, special characters, etc.
@@ -48,12 +51,19 @@ EOF
 ```
 
 ### Types of braces:  
-##### Parentheses `( )`  
+##### Parentheses `( )` - Subshell
+Runs the commands inside the parenthises in a subshell
 
-##### Double Parentheses `(( ))`  
-  Prevents globbing  
+##### Double Parentheses `(( ))` - Arithmatic Evaluation 
+  Used for arithmatic expansion.  `$(( ))` is probably a more common form.
+  Make sure to keep spaces between expression and parentheses.
+  e.g.
+  `foo=$(( 1 + 2 ))`    
+  Note that it only does integer math    
+
+
   
-##### Brackets `[ ]`  
+##### Brackets `[ ]` - test  
 Conditional expansion:   
 ```bash
 if [ -d /tmp ]; then
@@ -64,7 +74,7 @@ fi
 `[ ... ]` and `test ...` can both be used for conditionals. Both are builtins.  
   
   
-##### Double Brackets `[[ ]]`  
+##### Double Brackets `[[ ]]` - newer form of test   
 Also conditional expansion.  
 No pathname expansion or word splitting takes place between `[[` and `]]`  
 `[[ ... ]]` allows for regular expression matching where `[ ... ]` does not.  
@@ -99,6 +109,12 @@ abc12
 $ default="hello"; unset var; echo ${var:-$default}
 hello
 ``` 
+
+* Concatenate text
+```bash
+$ var="abc"; echo ${abc}def
+abcdef
+```
 
 * and several more
 
