@@ -221,6 +221,11 @@ Redirect both stdout and stderr to file, while still printing them:
 Same as above, but append instead of overwriting file:  
 `myprogram |& tee -a`
 
+### Process Substitution
+Used to pipe the `stdout` of one command into the `stdin` of another, or vise versa  
+`<(command)`  
+`>(command)`  
+
 ### Parameter Expansion
 Write this up:
 http://wiki.bash-hackers.org/syntax/pe 
@@ -351,11 +356,6 @@ printKeys () {
 declare -A aa='([bar]="bard" [foo]="food" )'
 printKeys "aa"
 ```
-
-### Process Substitution
-Used to pipe the `stdout` of one command into the `stdin` of another, or vise versa
-`<(command)`
-`>(command)`
 
 ### Functions
 ##### Create and call a function:
