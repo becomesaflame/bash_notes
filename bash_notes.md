@@ -227,7 +227,7 @@ Used to pipe the `stdout` of one command into the `stdin` of another, or vise ve
 `>(command)`  
 
 ### Parameter Expansion
-Write this up:
+Comprehensive syntax:  
 http://wiki.bash-hackers.org/syntax/pe 
 
 #### Indirect Parameter Expansion 
