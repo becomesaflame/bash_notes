@@ -43,7 +43,7 @@ Not a quote, but here's how to put a large block of formatted text into a variab
 ```
 EXAMPLE_JSON=$(cat <<EOF
     "state":"pending",
-    "target_url":"https://eace02.app.ray.com/cje01/job/clue/job/ids/job/ids-csp/",
+    "target_url":"https://jenkins.com/cje01/job/clue/job/ids/job/ids-csp/",
     "description":"Release Candidate Regression Pending",
     "context":"continuous-integration/jenkins/release-candidate-regress"
 EOF
