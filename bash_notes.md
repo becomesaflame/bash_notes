@@ -72,6 +72,7 @@ fi
 ```
 
 `[ ... ]` and `test ...` can both be used for conditionals. Both are builtins.  
+Keep spaces between the brackets and the conditional expression, because `[` is actually a reserved command that takes `]` as its final argument, as opposed to an operator like `{`. This is true for double bracket test as well.  
   
   
 ##### Double Brackets `[[ ]]` - newer form of test   
