@@ -90,7 +90,7 @@ x='name with space.sh'
                         #  all matching files in the current dir
 [[ $x == *.sh ]]        # Compares 'name with space.sh' to *.sh, matches
 ```
-Note that `[ ... ]` is a builtin and executes at runtime, whereas `[[ ... ]]` is a syntax feature of the shell lanugage and is parsed up front.  See (this oilshell blog post)[http://www.oilshell.org/blog/2016/10/12.html] for an in-depth discussion of these differences.  
+Note that `[ ... ]` is a builtin and executes at runtime, whereas `[[ ... ]]` is a syntax feature of the shell lanugage and is parsed up front.  See [this oilshell blog post](http://www.oilshell.org/blog/2016/10/12.html) for an in-depth discussion of these differences.  
   
 ##### Curly Braces as array builders `{ }`  
 Extrapolates a sequence to create an array  
