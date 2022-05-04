@@ -164,7 +164,7 @@ operators](http://www.tldp.org/LDP/abs/html/comparison-ops.html)
   True if length of STRING is zero  
 
 ##### Examples:
-```
+```bash
 if [ ! -d "aFolder" ]; then
   mkdir "aFolder"
 elif [ -d "bFolder" ]; then
@@ -206,7 +206,7 @@ Suppress stderr:
 `myprogram 2> /dev/null`  
 
 Suppress both stdout and stderr:
-```
+```bash
 myprogram &> out.log      # New bash syntax
 myprogram > out.log 2>&1  # Older sh syntax
 ```
@@ -227,19 +227,19 @@ http://wiki.bash-hackers.org/syntax/pe
 
 #### Indirect Parameter Expansion 
 Say you have a variable that contains the name of another variable:
-```
+```bash
 foo="1234"
 bar="foo"
 ```
 If you try `echo $bar` you will get `foo`. 
 If you want to evaluate the varable whose name it contains, you can use indirect expansion:
-```
+```bash
 echo ${!bar}
 ```
 This will return `1234`.
 
 Use a default value if the variable is unset or null:
-```
+```bash
 echo ${foo-bar}             # Will return "bar" if foo is unset
 echo ${foo:-bar}            # Will return "bar" if foo is unset or null (empty)
 ```
@@ -247,32 +247,32 @@ echo ${foo:-bar}            # Will return "bar" if foo is unset or null (empty)
 #### Nameref
 A variable can be created to point to another variable.
 Interactive: 
-```
+```bash
 x="1234"
 declare -n foo=x
 echo $foo
 ```
 
 In a function:
-```
+```bash
 x="1234"
 local -n foo=x
 echo $foo
 ```
 
 This is useful for manipulating variables names, e.g.
-```
+```bash
 version="2_3"
 local -n build="rev_$version"
 ```
 `build` will now point to the value of the variable `rev_2_3`. You can assign a value to that variable using the nameref:
-```
+```bash
 build="foo"
 echo $rev_2_3
 ```
 
 If you use indirect expansion for a nameref, you will get the name of the variable it points to.
-```
+```bash
 echo "${!build}"
 ```
 will return `rev_2_3`.
@@ -302,14 +302,14 @@ Delete longest match of `$substring` from back of `$string`:
 `continue` jumps you to the next loop iteration.
 
 #### For Loop
-```
+```bash
 for i in $( ls ); do
     echo item: $i
   done
 ```
 
 Loop through array:
-```
+```bash
 arr=("a", "b", "c")
 for i in "${arr[@]}"
 do
@@ -319,7 +319,7 @@ done
 
 #### While Loop
 Example of looping through an array of unknown length of JSON objects
-```
+```bash
 i=0
 while [ "$(./jq -r .[$i] <<< $statuses)" != null ]; do
   if [ "$(echo $statuses | ./jq -r .[$i].context)" = "continuous-integration/jenkins/condor-regress" ]; then
@@ -340,7 +340,7 @@ Print all values of an array:
 Good overview at [https://www.artificialworlds.net/blog/2012/10/17/bash-associative-array-examples/](https://www.artificialworlds.net/blog/2012/10/17/bash-associative-array-examples/)
 
 #### Pass an Associative Array into a Function
-```
+```bash
 printKeys () {
   var=$(declare -p "$1")
   eval "declare -A arr="${var#*=}
@@ -359,7 +359,7 @@ Used to pipe the `stdout` of one command into the `stdin` of another, or vise ve
 
 ### Functions
 ##### Create and call a function:
-```
+```bash
 sayHi(){
   echo 'Hello World'
 }
@@ -368,7 +368,7 @@ sayHi
 
 ##### Function with arguments:
 Functions use positional variables just like scripts do.
-``` 
+```bash
 sayHi(){
   echo "Hello $1"
 }
@@ -377,7 +377,7 @@ sayHi "World"
 
 ##### Function with return value:
 Can return a string with `echo`. Can set the exit code with `return`
-```
+```bash
 sayHi(){
   echo "Hello World"
   return 0 # Success
@@ -391,7 +391,7 @@ echo $greeting
 #### Usage Text
 Create a `usage` function to print out a help message. Here's an example:
 
-```
+```bash
 usage() { 
   cmd=$(basename $0) 
   cat <<EOF
@@ -417,7 +417,7 @@ exit 0
 
 
 Example of walking through arguments and processing them one at a time. This can support arguments in different orders, but cannot support multiple flags combined e.g. `ls -al`. 
-```
+```bash
 # Parse args
 while [[ $# -gt 0 ]]
 do 
@@ -444,7 +444,7 @@ done
 ```
 
 Example of parsing an optional argument:
-```
+```bash
 # Process optional arguments
 if [[ $# -gt 0 ]]; then
   argumentVariable="$1"
@@ -456,7 +456,7 @@ Get input from a user:
 Use the `read` command. 
 
 Example of yes/no prompt:
-```
+```bash
 while true; do
     read -p $'Do you wish to install this program?\n' yn
     case $yn in
@@ -474,7 +474,7 @@ Rename all files in a folder:
 
 #### Main function
 Add a main function that's only called if the script is being called directly from the command line:
-```
+```bash
 main() {
     xyz
     echo "Entering script1's main()"
@@ -487,7 +487,7 @@ fi
 
 #### Recursive glob
 Recurses through the given directory and its subdirectories, returning a list of files that match the glob string
-```
+```bash
  proc ::globr { baseDir pattern } {
    set dirs [ glob -nocomplain -type d [ file join $baseDir * ] ]
    set files {}
@@ -500,7 +500,7 @@ Recurses through the given directory and its subdirectories, returning a list of
  ```
  
 #### Create a directory if it doesn't exist
-```
+```bash
 [ -d "foobar" ] || mkdir foobar
 ```
 
@@ -520,7 +520,7 @@ The `-P 5` option to `xargs` kicks off 5 processes in parallel.
 The `-I %` is used to insert the inputs into a specific location (denoted by the `%` symbol) into the `rsync` command.  
 
 #### Check if a file contains some string and not another string
-```
+```bash
 if   prog | grep -q 'some string' &&
    ! prog | grep -q 'another string'; then
     echo 'OK'
@@ -532,7 +532,7 @@ This is surprisingly hard to do. Can't be done by stringing together square brac
 
 #### Fail a function if a command that it depends on doesn't exist
 `command` is likely built in to your shell, and with the `-v` option will tell you how your shell will invoke the command specified as its option. If the command doesn't exist it will return an error.
-```
+```bash
  try_wget() {
   command -v wget > /dev/null &&      # Following command (in this case, the if statement) won't run if wget isn't available
   if [[ $1 =~ tar.gz$ ]]; then
@@ -545,7 +545,7 @@ This is surprisingly hard to do. Can't be done by stringing together square brac
 ```
 
 #### Make sure you're in the directory where the script is located
-```
+```bash
 cd $(dirname ${BASH_SOURCE[0]})
 ```
 Using `${BASH_SOURCE[0]}` instead of `$0` will work even if the script is called with `source`. 
