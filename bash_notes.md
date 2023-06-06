@@ -544,6 +544,15 @@ This is surprisingly hard to do. Can't be done by stringing together square brac
 }
 ```
 
+#### Copy a file or directory, only including files that are committed in git
+```bash
+# Copy a file or directory, only including files that are committed in git
+git_cp() {
+	git read-tree -u --prefix="$2" "$(git ls-tree --object-only HEAD $1)"
+	git restore --staged "$2"
+}
+```
+
 #### Make sure you're in the directory where the script is located
 ```bash
 cd $(dirname ${BASH_SOURCE[0]})
