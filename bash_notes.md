@@ -282,7 +282,7 @@ echo "${!build}"
 ```
 will return `rev_2_3`.
 
-### String Manipulation
+### String Manipulation and Variables
 Concatenate variables with strings:
 `foo="${bar}world"`
 
@@ -299,6 +299,9 @@ Delete longest match of `$substring` from back of `$string`:
 `${string%%substring}`
 
 [More string manipulation](https://www.tldp.org/LDP/abs/html/string-manipulation.html)
+
+Variable with default value:
+`FOO=${FOO:-default_value}`
 
 ### Loops
 
