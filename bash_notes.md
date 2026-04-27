@@ -558,6 +558,7 @@ git_cp() {
 
 #### Make sure you're in the directory where the script is located
 ```bash
+# Make sure you're in the directory where the script is located
 cd $(dirname ${BASH_SOURCE[0]})
 ```
 Using `${BASH_SOURCE[0]}` instead of `$0` will work even if the script is called with `source`. 
